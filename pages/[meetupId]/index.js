@@ -38,7 +38,8 @@ export async function getStaticPaths() {
   return {
     // false -> path to all possible id is set
     // true -> path to some are set and try to generate others
-    fallback: false,
+    // blocking -> same as true but true returns empty page first
+    fallback: "blocking",
     paths: meetups.map((meetup) => ({
       params: {
         meetupId: meetup._id.toString(),
